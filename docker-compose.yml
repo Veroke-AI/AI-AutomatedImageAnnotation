@@ -1,0 +1,22 @@
+
+services:
+  backend:                       # ← service name; use any lowercase label you like
+    build:
+      context: ./AI-AutomatedImageAnnotation   # ← your FastAPI folder
+      dockerfile: Dockerfile                   # defaults are fine if file is named Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # keep large .pth files outside the image so rebuilds stay fast
+      - ./AI-AutomatedImageAnnotation/models:/app/models
+    restart: unless-stopped
+
+  frontend:                      # ← service name referenced below
+    build:
+      context: ./gui             # ← your Angular folder
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend                  # ← must match the name **backend** above
+    restart: unless-stopped
