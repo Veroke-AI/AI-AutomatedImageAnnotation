@@ -1,10 +1,3 @@
-# AI-AutomatedImageAnnotation
-create a virtual env python version == 3.10.6
-install requirements.txt
-create a models folder inside the project directory
-download sam_vit_b_01ec64.pth inside the models folder(https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth)
-download groundingdino_swint_ogc.pth inside the models folder(https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth)
-
 # 🧠 Veroke AI-Powered Image Annotation Platform
 
 **One Unified AI Platform for Image Annotation & Smart Visual Search**  
