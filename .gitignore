@@ -1,0 +1,126 @@
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env
+
+# Python / FastAPI
+backend/venv/
+backend/__pycache__/
+backend/models/*.pth  # Optional if models are large or private
+backend/.env
+
+# Docker
+*.log
+.env
+
+/venv
+venv
+EfficientSAM
+models
+output
+outputs
+static
+/static
+__pycache__
+/__pycache__
+**/__pycache__/
+__pycache__/
+*.pyd
+*.pdb
+*.pyc
+*.pyo
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.python-version
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# FastAPI / Uvicorn / Gunicorn logs
+*.log
+*.pid
+*.sqlite3
+*.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Local environment
+.env
+.env.*
+*.env
+*.local
+
+# Docker
+*.container
+*.log
+*.pid
+*.seed
+*.tar
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Node modules (if frontend included)
+node_modules/
+*.zip
