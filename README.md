@@ -61,7 +61,7 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
 
 - 📊 **Interactive Review Dashboards**  
   Explore data using **Plotly** visualizations — clusters, anomalies, and dataset quality at a glance.(also only implemented in backend)
-  
+
 # Data Annotation Tool
 
 A modern web application for annotating images with various labeling methods, built with Angular and Material Design.
@@ -81,30 +81,17 @@ A modern web application for annotating images with various labeling methods, bu
      - Select "Text" mode
      - Enter comma-separated labels in the input field
    
-   - **Click Labels**:
-     - Select "Click" mode
-     - Left-click to add positive annotations
-     - Ctrl + Left-click to add negative annotations
-   
-   - **Brush Labels**:
-     - Select "Brush" mode
-     - Click and drag to draw regions
-     - Use [ and ] keys to adjust brush size
+   - **Box label**:
+     - Select "polygon" mode
+     - Click and drag to draw box
 
 4. **Apply Preprocessing**
    - Enable desired preprocessing options
    - Adjust thresholds and parameters as needed
-   - Changes will be included in the API payload
 
 5. **Submit Annotations**
    - Click "Submit Annotations" to send the data
    - The payload will include all annotations and preprocessing options
-
-## Keyboard Shortcuts
-
-- `[` / `]`: Adjust brush size
-- `Ctrl + Click`: Add negative click annotation
-- `Z`: Undo last annotation
 
 ## Development
 
