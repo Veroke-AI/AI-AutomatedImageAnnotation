@@ -16,6 +16,11 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
   Use natural language prompts like “solar panel”, “military vehicle”, or “broken window”.  
   No prior training needed. Powered by **YOLOWorld** and **GroundingDINO**. (If label is in the yolo class yolo model otherwise GroundingDino)
 
+- 🏷️ Multiple Annotation Methods:
+  - Text Labels: Add comma-separated class labels
+  - Click Labels: Add positive/negative click annotations
+  - Brush Labels: Create freeform brush strokes for region selection
+
 - ✂️ **Auto & Manual Segmentation**  
   Detected objects are segmented instantly using **SAM** or **EfficientSAM**, with optional refinement using polygons, points, or masks.
 
@@ -38,24 +43,6 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
 # Data Annotation Tool
 
 A modern web application for annotating images with various labeling methods, built with Angular and Material Design.
-
-## Features
-
-- 📁 Folder Upload: Upload entire folders of images for annotation
-- 🖼️ Image Viewer: View and select images from the uploaded collection
-- 🏷️ Multiple Annotation Methods:
-  - Text Labels: Add comma-separated class labels
-  - Click Labels: Add positive/negative click annotations
-  - Brush Labels: Create freeform brush strokes for region selection
-- ⚙️ Image Preprocessing Options:
-  - Metadata extraction
-  - Grayscale conversion with threshold
-  - Image binarization with threshold and inversion
-  - Image resizing with aspect ratio preservation
-- 🎯 User-Friendly Interface:
-  - Keyboard shortcuts for common actions
-  - Tooltips and help information
-  - Responsive design for all screen sizes
 
 ## Usage
 
