@@ -42,6 +42,73 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
 
 - 📊 **Interactive Review Dashboards**  
   Explore data using **Plotly** visualizations — clusters, anomalies, and dataset quality at a glance.(also only implemented in backend)
+# Data Annotation Tool
+
+A modern web application for annotating images with various labeling methods, built with Angular and Material Design.
+
+## Features
+
+- 📁 Folder Upload: Upload entire folders of images for annotation
+- 🖼️ Image Viewer: View and select images from the uploaded collection
+- 🏷️ Multiple Annotation Methods:
+  - Text Labels: Add comma-separated class labels
+  - Click Labels: Add positive/negative click annotations
+  - Brush Labels: Create freeform brush strokes for region selection
+- ⚙️ Image Preprocessing Options:
+  - Metadata extraction
+  - Grayscale conversion with threshold
+  - Image binarization with threshold and inversion
+  - Image resizing with aspect ratio preservation
+- 🎯 User-Friendly Interface:
+  - Keyboard shortcuts for common actions
+  - Tooltips and help information
+  - Responsive design for all screen sizes
+
+## Usage
+
+1. **Upload Images**
+   - Click "Select Folder" or drag and drop a folder containing images
+   - Supported formats: PNG, JPEG, GIF, etc.
+
+2. **Select an Image**
+   - Click on any thumbnail in the gallery to select it for annotation
+   - The selected image will be displayed in the main canvas area
+
+3. **Add Annotations**
+   - **Text Labels**:
+     - Select "Text" mode
+     - Enter comma-separated labels in the input field
+   
+   - **Click Labels**:
+     - Select "Click" mode
+     - Left-click to add positive annotations
+     - Ctrl + Left-click to add negative annotations
+   
+   - **Brush Labels**:
+     - Select "Brush" mode
+     - Click and drag to draw regions
+     - Use [ and ] keys to adjust brush size
+
+4. **Apply Preprocessing**
+   - Enable desired preprocessing options
+   - Adjust thresholds and parameters as needed
+   - Changes will be included in the API payload
+
+5. **Submit Annotations**
+   - Click "Submit Annotations" to send the data
+   - The payload will include all annotations and preprocessing options
+
+## Keyboard Shortcuts
+
+- `[` / `]`: Adjust brush size
+- `Ctrl + Click`: Add negative click annotation
+- `Z`: Undo last annotation
+
+## Development
+
+- **Components**: Located in `src/app/components/`
+- **Styles**: Using Tailwind CSS with Material Design
+- **State Management**: Component-based with Angular's built-in features
 
 ---
 
@@ -66,21 +133,25 @@ Beyond annotation, the platform includes a visual gallery for organizing and sea
 ## 📦 Project Structure
 ```bash
 .
-├── AI-AutomatedImageAnnotation/ # FastAPI backend
-│ ├── main.py # FastAPI app entry point
-│ ├── requirements.txt # Python dependencies
-│ ├── Dockerfile # Backend Dockerfile
-│ └── models/ # Stores .pth model files
-│ ├── sam_vit_b_01ec64.pth
-│ └── groundingdino_swint_ogc.pth
+├── backend/                    # FastAPI backend
+│   ├── detector                # Yolo script
+│   ├── segmentation            # SAM scripts
+│   ├── utils                   # utility scripts for cropping, formatting etc.
+│   ├── zero_detector           # GroundingDino script
+│   ├── main.py                 # FastAPI entry point
+│   ├── requirements.txt        # Python dependencies
+│   ├── Dockerfile              # Backend container setup
+│   └── models/                 # AI model weights (used by backend)
+│       ├── sam_vit_b_01ec64.pth
+│       └── groundingdino_swint_ogc.pth
 │
-├── gui/ # Angular frontend
-│ ├── src/
-│ ├── angular.json
-│ ├── package.json
-│ └── Dockerfile # Frontend Dockerfile
+├── frontend/                   # Angular frontend
+│   ├── src/
+│   ├── angular.json
+│   ├── package.json
+│   └── Dockerfile              # Frontend container setup
 │
-├── docker-compose.yml # Service orchestration
+├── docker-compose.yml          # Orchestrates frontend & backend
 
 ```
 ---
@@ -97,6 +168,7 @@ Beyond annotation, the platform includes a visual gallery for organizing and sea
 
 ## ⚙️ Requirements
 Download following models in models folder:
+- python version used 3.10.6 cuda enabled
 - https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
 - https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
  
@@ -108,11 +180,11 @@ For Docker(optional):
 
 ## 📥 Setup Instructions
 
-### 1. Clone the Repository
-
 ```bash
+1. Clone the Repository
 git clone https://github.com/Veroke-IT/AI-AutomatedImageAnnotation
-cd ai-image-annotator
+cd ai-image-annotator/backend
+
 2. Download Model Weights
 Place the following .pth files in the AI-AutomatedImageAnnotation/models/ directory:
 
@@ -120,28 +192,25 @@ Place the following .pth files in the AI-AutomatedImageAnnotation/models/ direct
 
 🔗 Grounding DINO Swin-T Model
 
-3. Build and Run with Docker
-docker compose up --build
-🚀 Frontend: http://localhost:4200
-
-🧠 Backend API: http://localhost:8000/docs
-```
-
-## 🛠️ Development (Without Docker)
-```bash
-🔹 Backend (FastAPI)
-
-cd AI-AutomatedImageAnnotation
+3. Create a python environment
 python -m venv venv
-venv\Scripts\activate      # On Windows
-# source venv/bin/activate # On Linux/Mac
+venv\Scripts\activate  
+
+4. Install requirements
 pip install -r requirements.txt
+
+5. Run app
 uvicorn main:app --reload --port 8000
 
+🧠 Backend API: http://localhost:8000/docs
 
+first time setup will install one time models such as yolo text encoders etc. so be patient, it will take some time.
+```
+```bash
 🔹 Frontend (Angular)
 
-cd gui
+1. Install requirements
+cd ai-image-annotator/frontend
 npm install --legacy-peer-deps
 npm start
 
@@ -151,6 +220,8 @@ npm start
 Visit Swagger UI at:
 👉 http://localhost:8000/docs
 
+```
+```bash
 🧠 Models Used
 Segment Anything (SAM)
 
