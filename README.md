@@ -16,6 +16,27 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
   Use natural language prompts like “solar panel”, “military vehicle”, or “broken window”.  
   No prior training needed. Powered by **YOLOWorld** and **GroundingDINO**. (If label is in the yolo class yolo model otherwise GroundingDino)
 
+- 🖼 **Open-Source GUI for Data Annotation**
+  Our platform includes a user-friendly, open-source GUI annotation interface designed for seamless dataset creation and editing — directly in your browser.
+
+- ✅ Draw / Remove Bounding Boxes
+  Users can manually add or delete bounding boxes on any image to define or refine annotations.
+
+- 🏷 **Add New Classes On The Fly**
+  Easily create new object categories via dropdown or text input, even during annotation sessions.
+
+- 📷 **Upload Your Own Images**
+  Supports uploading images or loading them via API from external datasets.
+
+- 🔁 **Edit, Relabel, or Reassign Annotations**
+  Existing bounding boxes can be reclassified, resized, or deleted in one click.
+
+- 💾 Annotation Autosave
+  Changes are saved to disk or via API without refreshing the page.
+
+- 📤 Export in Standard Formats
+  Annotations can be exported in COCO, Pascal VOC, or YOLO format — ready for training.
+
 - 🏷️ Multiple Annotation Methods:
   - Text Labels: Add comma-separated class labels
   - Click Labels: Add positive/negative click annotations
@@ -40,6 +61,7 @@ Designed for AI/ML teams, researchers, and product builders, our annotation suit
 
 - 📊 **Interactive Review Dashboards**  
   Explore data using **Plotly** visualizations — clusters, anomalies, and dataset quality at a glance.(also only implemented in backend)
+  
 # Data Annotation Tool
 
 A modern web application for annotating images with various labeling methods, built with Angular and Material Design.
