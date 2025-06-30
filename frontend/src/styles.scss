@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.canvas-container {
+  @apply relative border border-gray-300 rounded-lg overflow-hidden;
+  
+  canvas {
+    @apply max-w-full h-auto;
+  }
+}
+
+.annotation-dot {
+  @apply absolute w-4 h-4 rounded-full transform -translate-x-1/2 -translate-y-1/2 cursor-pointer;
+  
+  &.positive {
+    @apply bg-green-500 bg-opacity-75;
+  }
+  
+  &.negative {
+    @apply bg-red-500 bg-opacity-75;
+  }
+}
+
+.image-gallery {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4;
+  
+  .image-item {
+    @apply relative aspect-square rounded-lg overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary-500 transition-all;
+    
+    img {
+      @apply w-full h-full object-cover;
+    }
+  }
+}
+
+.controls-panel {
+  @apply space-y-4 p-4 bg-gray-50 rounded-lg;
+}
+
+.brush-controls {
+  @apply flex items-center space-x-4;
+  
+  .size-control {
+    @apply w-32;
+  }
+}
+
+.preprocessing-options {
+  @apply space-y-2;
+  
+  .option-group {
+    @apply p-3 border border-gray-200 rounded-lg;
+  }
+}
+
+/* Material overrides */
+.mat-mdc-form-field {
+  @apply w-full;
+}
+
+.mat-mdc-slide-toggle {
+  @apply mb-2;
+} 
